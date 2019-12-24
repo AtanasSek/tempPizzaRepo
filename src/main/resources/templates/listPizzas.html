@@ -1,0 +1,40 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Order page - Welcome and choose pizza</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to our Pizza Delivery App</h1>
+</header>
+<main>
+
+<!--    <input type="radio" name="pizza" th:value="${pizza.name}">-->
+
+<!--    <label th:text="${list[0].name}">Test</label>-->
+
+    <h2>Choose pizza:</h2>
+<!--            th:action="@{/selectPizza.do}"  Request method POST not supported -->
+    <form action="/selectPizza.do" method="POST"> <!-- 403 Forbidden-->
+        <ul th:each="pizza : ${list}">
+            <input type="radio" name="pizza" th:value="${pizza.name}"><label th:text="${pizza.name}"></label> <label th:text="${pizza.description}"></label>
+        </ul>
+        <!--<select th:field="*{guardian}">-->
+            <!--<option th:each="guardian : ${guardians}"-->
+                    <!--th:value="${guardian.id}"-->
+                    <!--th:text="${guardian.name}"></option>-->
+        <!--</select>-->
+
+        <br/>
+        <a href="/selectPizza.do">Submit</a>
+        <button type="submit">Submit</button>
+    </form>
+</main>
+</body>
+</html>

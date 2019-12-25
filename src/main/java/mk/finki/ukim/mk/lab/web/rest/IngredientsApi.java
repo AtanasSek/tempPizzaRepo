@@ -1,6 +1,7 @@
 package mk.finki.ukim.mk.lab.web.rest;
 
 import mk.finki.ukim.mk.lab.service.IngredientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,24 +17,27 @@ public class IngredientsApi{
     }
 
     @PostMapping
-    public void createIngredient(@RequestParam String name,@RequestParam Float amount,@RequestParam boolean spicy,@RequestParam boolean veggie){
+    public void createIngredient(String name,Float amount,boolean spicy,boolean veggie){
         ingredientService.createIngredient(name, amount , spicy, veggie);
     }
 
-    @PatchMapping("{/id}")
-    public void updateIngredient(@PathVariable("/id") String oldname ,@RequestParam String name,@RequestParam Float amount ,@RequestParam boolean spicy ,@RequestParam boolean veggie){
+    @PatchMapping("/{id}")
+    public void updateIngredient(@PathVariable("id") String oldname ,String name,Float amount ,boolean spicy ,boolean veggie){
         ingredientService.updateIngredient(oldname, name , amount , spicy, veggie);
     }
 
-    @DeleteMapping("{/id}")
-    public void deleteIngredient(@PathVariable("/id") String name){
+    @DeleteMapping("/{id}")
+    public void deleteIngredient(@PathVariable("id") String name){
         ingredientService.deleteIngredient(name);
     }
 
-    @GetMapping("{/id}")
-    public void getIngredient(@PathVariable("/id") String name){
+    @GetMapping("/{id}")
+    public void getIngredient(@PathVariable("id") String name){
         ingredientService.getIngredient(name);
     }
+
+    @GetMapping
+    public void getAllIngredients(){ingredientService.getAllIngredients();}
 
 //    @PostMapping
 //    public IngredientService

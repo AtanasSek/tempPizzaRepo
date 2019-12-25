@@ -19,22 +19,22 @@ public class PizzasApi {
     }
 
     @PostMapping
-    public void createPizza(@RequestParam String name ,@RequestParam String description ,@RequestParam List<Ingredient> ingredients ,@RequestParam boolean veggie){
+    public void createPizza(String name ,String description ,List<Ingredient> ingredients ,boolean veggie){
         pizzaService.createPizza(name, description , ingredients , veggie);
     }
 
-    @PatchMapping("{/id}")
-    public void updatePizza(@PathVariable("/id") String oldname ,@RequestParam String name ,@RequestParam String description ,@RequestParam List<Ingredient> ingredients ,@RequestParam boolean veggie){
+    @PatchMapping("/{id}")
+    public void updatePizza(@PathVariable("id") String oldname ,String name ,String description ,List<Ingredient> ingredients ,boolean veggie){
         pizzaService.updatePizza(oldname, name , description , ingredients, veggie);
     }
 
-    @DeleteMapping("{/id}")
-    public void deletePizza(@PathVariable("/id") String name){
+    @DeleteMapping("/{id}")
+    public void deletePizza(@PathVariable("id") String name){
         pizzaService.deletePizza(name);
     }
 
-    @GetMapping("{/id}")
-    public void getPizza(@PathVariable("/id") String name){
+    @GetMapping("/{id}")
+    public void getPizza(@PathVariable("id") String name){
         pizzaService.getPizza(name);
     }
 

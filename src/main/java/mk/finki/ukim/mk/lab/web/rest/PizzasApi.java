@@ -42,7 +42,10 @@ public class PizzasApi {
     }
 
     @GetMapping
-    public Page<Pizza> getAllPizzas(){
+//    public Page<Pizza> getAllPizzas(){
+//        return pizzaService.getAllPizzas();
+//    }
+    public List<Pizza> getAllPizzas(){
         return pizzaService.getAllPizzas();
     }
 

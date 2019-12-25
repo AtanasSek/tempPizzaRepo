@@ -47,9 +47,13 @@ public class PizzaServiceImpl implements PizzaService {
         this.pizzaRepository.deleteById(name);
     }
 
-    public Page<Pizza> getAllPizzas(){
-        Pageable page = PageRequest.of(0,5, Sort.by("name"));
-        return this.pizzaRepository.findAll(page);
+//    public Page<Pizza> getAllPizzas(){
+//        Pageable page = PageRequest.of(0,5, Sort.by("name"));
+//        return this.pizzaRepository.findAll(page);
+//    }
+
+    public List<Pizza> getAllPizzas(){
+        return this.pizzaRepository.findAll();
     }
 
     public Optional<Pizza> getPizza(String name){

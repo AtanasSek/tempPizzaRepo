@@ -13,7 +13,8 @@ public interface PizzaService {
     Pizza createPizza(String name , String description , List<Ingredient> ingredients , boolean veggie);
     Pizza updatePizza(String oldname , String name , String description , List<Ingredient> ingredients , boolean veggie);
     void deletePizza(String name);
-    Page<Pizza> getAllPizzas();
+    //Page<Pizza> getAllPizzas();
+    List<Pizza> getAllPizzas();
     Optional<Pizza> getPizza(String name);
     //public Ingredient createIngredient(String name, Float amount , boolean spicy, boolean veggie);
     //    public Ingredient updateIngredient(String oldName, String name,Float amount , boolean spicy, boolean veggie);

@@ -37,7 +37,7 @@ client.assert(response.status === 200, "Response status is not 200");
 %}
 
 ### Missing header
-POST http://localhost:8080/api/consultations
+POST http://localhost:8080/api/pizzas/
 
 > {%
 client.test("Request executed successfully", function() {

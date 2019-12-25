@@ -1,11 +1,14 @@
 package mk.finki.ukim.mk.lab.web.rest;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
+import mk.finki.ukim.mk.lab.model.Pizza;
 import mk.finki.ukim.mk.lab.service.PizzaService;
+import org.springframework.data.domain.Page;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -34,12 +37,14 @@ public class PizzasApi {
     }
 
     @GetMapping("/{id}")
-    public void getPizza(@PathVariable("id") String name){
-        pizzaService.getPizza(name);
+    public Optional<Pizza> getPizza(@PathVariable("id") String name){
+       return pizzaService.getPizza(name);
     }
 
     @GetMapping
-    public void getAllPizzas(){
-        pizzaService.getAllPizzas();
+    public Page<Pizza> getAllPizzas(){
+        return pizzaService.getAllPizzas();
     }
+
+
 }

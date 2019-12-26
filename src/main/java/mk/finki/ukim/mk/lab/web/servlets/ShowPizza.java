@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-//@WebServlet(name = "ShowPizza", urlPatterns = "")
+@WebServlet(name = "ShowPizza", urlPatterns = "")
 //@EnableWebSecurity
 public class ShowPizza extends HttpServlet {
 
